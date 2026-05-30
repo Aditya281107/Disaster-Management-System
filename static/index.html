@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Disaster Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-icon">&#9888;</div>
+            <div>
+                <h1>Disaster Management System</h1>
+                <p class="subtitle">Autonomous AI-Driven Pipeline</p>
+            </div>
+        </header>
+
+        <!-- Input Panel -->
+        <section class="panel input-panel" id="input-panel">
+            <h2>Location Input</h2>
+            <div class="input-group">
+                <input type="text" id="location-input" placeholder="Enter location (e.g., Mumbai, India)" />
+                <button id="analyze-btn" onclick="runPipeline()">Analyze</button>
+            </div>
+            <div class="loading-bar" id="loading-bar">
+                <div class="loading-fill"></div>
+            </div>
+        </section>
+
+        <!-- Pipeline Progress -->
+        <section class="panel progress-panel" id="progress-panel" style="display:none;">
+            <h2>Pipeline Progress</h2>
+            <div class="steps" id="pipeline-steps">
+                <div class="step" data-step="1"><span class="step-num">1</span> Weather Ingestion</div>
+                <div class="step" data-step="2"><span class="step-num">2</span> Time Series Forecast</div>
+                <div class="step" data-step="3"><span class="step-num">3</span> Disaster Prediction (ML)</div>
+                <div class="step" data-step="4"><span class="step-num">4</span> News Monitoring</div>
+                <div class="step" data-step="5"><span class="step-num">5</span> Cognitive Assessor</div>
+                <div class="step" data-step="6"><span class="step-num">6</span> Department Agent</div>
+                <div class="step" data-step="7"><span class="step-num">7</span> Human Review</div>
+                <div class="step" data-step="8"><span class="step-num">8</span> Self-Improving Loop</div>
+            </div>
+        </section>
+
+        <!-- Results Grid -->
+        <div class="results-grid" id="results-grid" style="display:none;">
+            <!-- Weather Data -->
+            <section class="panel result-card" id="weather-card">
+                <h3>Current Weather</h3>
+                <div id="weather-data" class="data-content"></div>
+            </section>
+
+            <!-- Forecast -->
+            <section class="panel result-card" id="forecast-card">
+                <h3>48-Hour Forecast</h3>
+                <div id="forecast-data" class="data-content"></div>
+            </section>
+
+            <!-- ML Prediction -->
+            <section class="panel result-card prediction-card" id="prediction-card">
+                <h3>ML Disaster Prediction</h3>
+                <div id="prediction-data" class="data-content"></div>
+            </section>
+
+            <!-- News Context -->
+            <section class="panel result-card" id="news-card">
+                <h3>News Context</h3>
+                <div id="news-data" class="data-content"></div>
+            </section>
+        </div>
+
+        <!-- Assessment & Routing -->
+        <section class="panel assessment-panel" id="assessment-panel" style="display:none;">
+            <div class="assessment-header">
+                <div>
+                    <h2>Assessment & Routing</h2>
+                    <div class="badges">
+                        <span class="badge severity-badge" id="severity-badge"></span>
+                        <span class="badge dept-badge" id="dept-badge"></span>
+                        <span class="badge iteration-badge" id="iteration-badge" style="display:none;"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alert Preview & Decision -->
+        <section class="panel alert-panel" id="alert-panel" style="display:none;">
+            <h2>Alert Message for Review</h2>
+            <div class="alert-content" id="alert-content"></div>
+
+            <!-- Decision Buttons -->
+            <div class="decision-panel" id="decision-panel">
+                <button class="btn btn-approve" onclick="submitDecision('approve')">Approve & Send Alert</button>
+                <button class="btn btn-reject" onclick="showRejectForm()">Reject & Improve</button>
+            </div>
+
+            <!-- Reject Feedback Form -->
+            <div class="feedback-form" id="feedback-form" style="display:none;">
+                <textarea id="feedback-input" placeholder="Why are you rejecting this alert? Provide specific feedback..."></textarea>
+                <button class="btn btn-submit" onclick="submitDecision('reject')">Submit Feedback & Regenerate</button>
+            </div>
+        </section>
+
+        <!-- Result Banner -->
+        <section class="panel result-banner" id="result-banner" style="display:none;">
+            <div id="result-message"></div>
+        </section>
+
+        <!-- Insights Panel -->
+        <section class="panel insights-panel" id="insights-panel">
+            <h2>Learned Insights <span class="insight-count" id="insight-count">0</span></h2>
+            <p class="insights-desc">Rules learned from human feedback (Self-Improving Memory)</p>
+            <ul id="insights-list"></ul>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
