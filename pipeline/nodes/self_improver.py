@@ -37,7 +37,7 @@ def _call_gemini(prompt: str) -> str:
         return response.content
     except Exception as e:
         print(f"[LLM ERROR] {e}")
-        return "Insight generation failed due to API limits. Ensure safety and clarity."
+        return ""
 
 
 REFLECTION_PROMPT = """You are a Self-Improving AI Agent. A human reviewer has REJECTED an alert message you generated. Your job is to reflect on the failure and produce a PERMANENT RULE that will prevent the same mistake in the future.
